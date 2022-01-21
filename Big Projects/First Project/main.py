@@ -1,4 +1,3 @@
-##### [Class Assignment 1 - 2017029634 박성환] #####
 import glfw
 from OpenGL.GL import *
 from OpenGL.GLU import *
@@ -257,7 +256,7 @@ def key_callback(window, key, scancode, action, mods):
 def main():
     if not glfw.init():
         return
-    window = glfw.create_window(1000,1000,'ClassAssignment1', None, None)
+    window = glfw.create_window(1000,1000,'A', None, None)
     if not window:
         glfw.terminate()
         return

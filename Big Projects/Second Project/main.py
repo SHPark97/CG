@@ -1,10 +1,8 @@
-##### [Class Assignment 2 - 2017029634 박성환] #####
 import glfw
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import numpy as np
 
-########### Class Assignment 1 용 변수 ############
 ##### Orbit용 변수 선언	#####
 gAzimuth = 60
 gElevation = 30
@@ -25,7 +23,7 @@ gRight_Button_Pressed = False
 ##### Toggle용 변수 선언	#####
 gPerspective = True
 
-########### Class Assignment 2 용 변수 ############
+
 gV_list = [ ]
 gVN_list = [ ]
 gF_list = [ ]
@@ -52,7 +50,6 @@ def render():
     glEnable(GL_DEPTH_TEST)
     glLoadIdentity()
 
-    # Class Assignment 2
     # Wire Frame 과 Solid Mode 구분
     if WireFrame_0_or_Solid_1 == 0 :
         glPolygonMode( GL_FRONT_AND_BACK, GL_LINE )
@@ -103,7 +100,6 @@ def render():
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, objectColor)
     glMaterialfv(GL_FRONT, GL_SHININESS, 10)
     
-    # Class Assignment 1
     Fovy = 45
     Aspect = 1
     Znear = 1
@@ -143,12 +139,10 @@ def render():
         myCamera(EYE, AT, -1 * UP)
 
 
-    ##### Class Assignment 1   #####
     ##### Grid와 Frame을 그림 #####
     drawGrid()
     drawFrame()
 
-    ##### Class Assignment 2   #####
     ##### Object를 그림          #####
     if draw_object_on == 1 and animation_on == 0 :
         objectColor = (1., 1., 1., 1.)
@@ -360,7 +354,6 @@ def drawGrid():
         glPopMatrix()
 
 
-#######     Class Assignment 2 	#######
 #######	    3. Object Draw	 	#######
 def drawObject():
     global gVertexArray, gNormalArray, gFNormalArray
@@ -516,15 +509,12 @@ def key_callback(window, key, scancode, action, mods):
     global animation_on
 
     if action==glfw.PRESS or action==glfw.REPEAT:
-        ##### Class Assignment 1 #####
         if key==glfw.KEY_V:
             if (gPerspective == True) :
                 gPerspective = False
             else :
                 gPerspective = True
 
-
-        ###### Class Assignment 2 #####
         elif key==glfw.KEY_H :
             # Animating Hierarchical Model Rendering Mode
             # Animation은 Shading Force Shading이 아닌 경우에만 가능
@@ -549,7 +539,6 @@ def key_callback(window, key, scancode, action, mods):
                 WireFrame_0_or_Solid_1 = 1
 
 
-#######     Class Assignment 2 	#######
 #######	       5. 드랍 콜백 구현 	#######
 def drag_drop_callback(window, path):
     global gV_list, gVN_list, gF_list
@@ -787,7 +776,7 @@ def Parsing(fd, Varray, VNarray):
 def main():
     if not glfw.init():
         return
-    window = glfw.create_window(1000,1000,'ClassAssignment2', None, None)
+    window = glfw.create_window(1000,1000,'A', None, None)
     if not window:
         glfw.terminate()
         return

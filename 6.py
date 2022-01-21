@@ -71,7 +71,7 @@ def render(th):
 def main():
     if not glfw.init():
         return
-    window = glfw.create_window(480,480, '2017029634', None,None)
+    window = glfw.create_window(480,480, 'A', None,None)
     if not window:
         glfw.terminate()
         return

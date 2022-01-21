@@ -1,10 +1,8 @@
-##### [Class Assignment 3 - 2017029634 박성환] #####
 import glfw
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import numpy as np
 
-########### Class Assignment 1 용 변수 ############
 ##### Orbit용 변수 선언	#####
 gAzimuth = 60
 gElevation = 30
@@ -62,7 +60,6 @@ LeftUpLeg = Anima()
 LeftLeg = Anima()
 LeftFoot = Anima()
 
-########### Class Assignment 3 용 변수 ############
 gV_list = [ ]
 gVN_list = [ ]
 gF_list = [ ]
@@ -206,10 +203,6 @@ def render():
     glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor)
     glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLightColor)
 
-
-
-    
-    # Class Assignment 1
     Fovy = 45
     Aspect = 1
     Znear = 1
@@ -252,13 +245,9 @@ def render():
     glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, objectColor)
     glMaterialfv(GL_FRONT, GL_SHININESS, 10)
 
-
-    ##### Class Assignment 1   #####
     ##### Grid와 Frame을 그림 #####
     drawGrid()
     drawFrame()
-
-    ##### Class Assignment 3   #####
 
     # Object Animation..
     if (gZ == 1) :
@@ -736,7 +725,6 @@ def key_callback(window, key, scancode, action, mods):
     global gTime, gZ
 
     if action==glfw.PRESS or action==glfw.REPEAT:
-        ###### Class Assignment 3 #####
         if key==glfw.KEY_SPACE :
             # Animate the loaded motion
             if animation_on == 1 :
@@ -752,7 +740,6 @@ def key_callback(window, key, scancode, action, mods):
                 gTime = glfw.get_time()
 
 
-#######     Class Assignment 3 	#######
 #######	       5. 드랍 콜백 구현 	#######
 def drag_drop_callback(window, path):
     global gFrames, gFrameTime
@@ -1138,7 +1125,7 @@ def WalkParse():
 def main():
     if not glfw.init():
         return
-    window = glfw.create_window(1000,1000,'ClassAssignment3', None, None)
+    window = glfw.create_window(1000,1000,'A', None, None)
     if not window:
         glfw.terminate()
         return
